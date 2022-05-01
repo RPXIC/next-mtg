@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-demo",
+  "name": "nextjs-mtg",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.3",
+    "@next-auth/mongodb-adapter": "^1.0.3",
+    "mongodb": "^4.5.0",
     "next": "12.1.5",
+    "next-auth": "^4.3.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
