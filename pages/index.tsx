@@ -16,7 +16,8 @@ const Home = (session: Session) => {
           <h1>Home</h1>
           {name && <p>{name}</p>}
           {email && <p>{email}</p>}
-          {image && <Image src={image} width={20} height={20} alt='user_img' />}
+          {image && <Image src={image} width={60} height={60} alt='user_img' />}
+          <br />
           <button onClick={() => signOut()}>Logout</button>
         </>
       ) : (

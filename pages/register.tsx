@@ -1,33 +1,23 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import useLogin from 'hooks/useLogin'
+import useRegister from 'hooks/useRegister'
 import {
   Box,
-  Button,
-  CircularProgress,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
   TextField,
+  Button,
 } from '@mui/material'
-import { Visibility, VisibilityOff, Login } from '@mui/icons-material'
-import GitHubLogo from 'assets/GitHubLogo.png'
-import GoogleLogo from 'assets/GoogleLogo.svg'
+import { Visibility, VisibilityOff, Send, Login } from '@mui/icons-material'
 
-export default function LoginPage() {
-  const { router, status, values, handleChange, handleClickShowPassword, handleMouseDownPassword, signIn } = useLogin()
+export default function RegisterPage() {
+  const { router, status, values, handleChange, handleClickShowPassword, handleMouseDownPassword } = useLogin()
+  const { register } = useRegister()
 
   if (status === 'authenticated') router.push('/')
-
-  if (status === 'loading' || status === 'authenticated') {
-    return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <CircularProgress size={100} />
-      </Box>
-    )
-  }
 
   return (
     <>
@@ -40,7 +30,7 @@ export default function LoginPage() {
           padding: '1rem',
           height: '100vh',
         }}>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <Box sx={{ width: '30ch' }}>
           <TextField label='User' onChange={handleChange('user')} margin='dense' fullWidth />
           <FormControl variant='outlined' fullWidth>
@@ -66,23 +56,13 @@ export default function LoginPage() {
             />
           </FormControl>
           <Box sx={{ display: 'flex', justifyContent: 'space-around', margin: 1 }}>
-            <Button variant='outlined'>
-              <Link href='/register'>
-                <a style={{ color: '#1876d2' }}>Create Account</a>
+            <Button variant='outlined' endIcon={<Login />}>
+              <Link href='/login'>
+                <a style={{ color: '#1876d2' }}>Login</a>
               </Link>
             </Button>
-            <Button variant='outlined' endIcon={<Login />}>
-              Sign In
-            </Button>
-          </Box>
-
-          <Box sx={{ display: 'flex' }}>
-            <p>SignIn with</p>
-            <Button onClick={() => signIn('github')}>
-              <Image src={GitHubLogo} alt='ghlogo' width={40} height={40} />
-            </Button>
-            <Button onClick={() => signIn('google')}>
-              <Image src={GoogleLogo} alt='googlelogo' width={40} height={40} />
+            <Button variant='outlined' endIcon={<Send />} onClick={() => register(values)}>
+              Register
             </Button>
           </Box>
         </Box>
