@@ -7,7 +7,7 @@ export default function useLogin() {
   const router = useRouter()
   const { status } = useSession()
   const [values, setValues] = useState<LoginState>({
-    user: '',
+    email: '',
     password: '',
     showPassword: false,
   })

@@ -42,7 +42,7 @@ export default function LoginPage() {
         }}>
         <h1>Login</h1>
         <Box sx={{ width: '30ch' }}>
-          <TextField label='User' onChange={handleChange('user')} margin='dense' fullWidth />
+          <TextField label='Email' onChange={handleChange('email')} margin='dense' fullWidth />
           <FormControl variant='outlined' fullWidth>
             <InputLabel htmlFor='outlined-adornment-password'>Password</InputLabel>
             <OutlinedInput

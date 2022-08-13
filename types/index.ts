@@ -1,5 +1,5 @@
 export interface LoginState {
-  user: string
+  email: string
   password: string
   showPassword: boolean
 }
