@@ -1,6 +1,6 @@
-import { getSession, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import { AccountMenu, Seo } from 'components'
+import { getSession, signOut } from 'next-auth/react'
 import { Session } from 'next-auth/core/types'
 import styles from '../styles/Home.module.css'
 
@@ -34,15 +34,15 @@ export const getServerSideProps = async (context: any) => {
     return {
       redirect: {
         destination: '/login',
-        permanent: false,
-      },
+        permanent: false
+      }
     }
   }
 
   return {
     props: {
-      ...session,
-    },
+      ...session
+    }
   }
 }
 
